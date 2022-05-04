@@ -60,3 +60,6 @@ RUN pip install cookiecutter
 # added in v0.66
 RUN pip install xlrd
 RUN pip install openpyxl
+
+# added in v0.67
+RUN pip install wandb
