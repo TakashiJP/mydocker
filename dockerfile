@@ -63,3 +63,6 @@ RUN pip install openpyxl
 
 # added in v0.67
 RUN pip install wandb
+
+# added in v0.68
+RUN pip install statsmodels
