@@ -77,4 +77,4 @@ RUN pip install protobuf==3.20.1
 
 # added in v0.69
 RUN pip install ipywidgets
-RUN apt-get install -y zip
+RUN apt-get install zip
