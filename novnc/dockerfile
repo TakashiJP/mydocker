@@ -1,0 +1,29 @@
+# takashi1987/myenv:0.80
+
+#FROM pytorch/pytorch:1.9.0-cuda11.1-cudnn8-devel
+FROM pytorch/pytorch:1.12.0-cuda11.3-cudnn8-devel
+
+RUN apt-get update
+
+#RUN apt-get update --fix-missing
+
+#RUN apt-get install -y lxde
+
+ENV TZ=Asia/Tokyo
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN apt-get install -y tzdata
+
+
+
+RUN apt-get install -y novnc websockify
+
+RUN mkdir /root/.vnc
+ADD xstartup /root/.vnc/xstartup
+ADD passwd /root/.vnc/passwd
+
+RUN chmod 600 /root/.vnc/passwd
+
+CMD /usr/bin/vncserver :1 -geometry 1280x800 -depth 24 && tail -f /root/.vnc/*:1.log
+
+EXPOSE 5901
