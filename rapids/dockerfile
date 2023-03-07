@@ -37,3 +37,17 @@ RUN apt-get install -y zip
 
 # added in v0.80
 RUN pip install networkx
+
+RUN pip install ffmpeg-python
+RUN apt install -y ffmpeg
+
+RUN pip install jupytext
+
+RUN apt-get update
+RUN apt-get install -y nodejs npm
+RUN npm install n -g
+RUN n stable
+RUN apt-get purge -y nodejs npm
+RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
+RUN apt-get install -y --no-install-recommends fontconfig ttf-mscorefonts-installer
+RUN fc-cache -fv
