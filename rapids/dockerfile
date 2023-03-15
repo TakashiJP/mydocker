@@ -51,3 +51,5 @@ RUN apt-get purge -y nodejs npm
 RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
 RUN apt-get install -y --no-install-recommends fontconfig ttf-mscorefonts-installer
 RUN fc-cache -fv
+
+RUN pip install graphviz
