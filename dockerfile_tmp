@@ -1,0 +1,39 @@
+# takashi1987/myenv:0.82
+
+#FROM pytorch/pytorch:1.9.0-cuda11.1-cudnn8-devel
+#FROM pytorch/pytorch:1.12.1-cuda11.3-cudnn8-devel
+FROM pytorch/pytorch:2.0.1-cuda11.7-cudnn8-devel
+
+#RUN apt-get install wget
+#RUN apt-key del 7fa2af80
+#RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-keyring_1.0-1_all.deb
+#RUN dpkg -i cuda-keyring_1.0-1_all.deb
+# RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
+
+RUN apt-get clean
+RUN apt-get update && apt-get install -y --no-install-recommends
+
+RUN apt-get install -y wget build-essential libssl-dev
+
+# RUN apt-get purge cmake && \
+# wget https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4.tar.gz && \
+# tar xvf cmake-3.26.4.tar.gz && \
+# cd cmake-3.26.4 && \
+# ./bootstrap && make && make install
+
+# RUN alias cmake='/usr/local/bin/cmake'
+
+RUN apt-get install -y git
+
+# RUN cd ..
+
+
+# RUN git clone https://github.com/dmlc/xgboost && \
+# cd xgboost && \
+# git tag -l && \
+# git checkout tags/v1.4.2 && \
+# mkdir -p xgboost/build
+# cd xgboost/build  && \
+# cmake .. -DUSE_CUDA=ON && \
+# make install -j4
+
